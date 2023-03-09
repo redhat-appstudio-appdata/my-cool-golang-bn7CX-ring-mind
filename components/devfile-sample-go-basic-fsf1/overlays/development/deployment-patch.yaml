@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  name: devfile-sample-go-basic-fsf1
+  namespace: mjobanek-tenant
+spec:
+  replicas: 1
+  selector: {}
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+    spec:
+      containers:
+      - image: quay.io/redhat-appstudio/user-workload@sha256:f8bd085d4a7bb5df97c41a4dc378ea0da2ee53f894e2f30b94be4af4c9005a60
+        name: my-go
+        resources: {}
+status: {}
