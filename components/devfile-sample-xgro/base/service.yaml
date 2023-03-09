@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/created-by: application-service
+    app.kubernetes.io/instance: devfile-sample-xgro
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/name: devfile-sample-xgro
+    app.kubernetes.io/part-of: my-cool-golang
+  name: devfile-sample-xgro
+  namespace: mjobanek-tenant
+spec:
+  ports:
+  - port: 3001
+    targetPort: 3001
+  selector:
+    app.kubernetes.io/instance: devfile-sample-xgro
+status:
+  loadBalancer: {}

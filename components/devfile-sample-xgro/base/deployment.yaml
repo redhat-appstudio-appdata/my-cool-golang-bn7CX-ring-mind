@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/created-by: application-service
+    app.kubernetes.io/instance: devfile-sample-xgro
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/name: devfile-sample-xgro
+    app.kubernetes.io/part-of: my-cool-golang
+  name: devfile-sample-xgro
+  namespace: mjobanek-tenant
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nodejs-app
+      app.kubernetes.io/instance: devfile-sample-xgro
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: nodejs-app
+        app.kubernetes.io/instance: devfile-sample-xgro
+    spec:
+      containers:
+      - image: quay.io/redhat-appstudio/user-workload:bn7CX-devfile-sample-xgro
+        name: my-nodejs
+        ports:
+        - containerPort: 3001
+          name: http
+          protocol: TCP
+        resources:
+          limits:
+            cpu: 100m
+            memory: 100Mi
+          requests:
+            cpu: 10m
+            memory: 50Mi
+status: {}
